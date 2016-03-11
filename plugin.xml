@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-i2apgtools"
+        version="0.0.1">
+
+    <name>I2A PG Tools</name>
+    <description>A Cordova plugin with I2A PG Tools </description>
+
+    <engines>
+        <engine name="cordova" version=">=3.6.0" />
+    </engines>
+
+    <js-module src="www/i2atools.js" name="I2ATools">
+        <clobbers target="I2ATools" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="I2ATools">
+                <param name="android-package" value="com.i2asolutions.phonegap.I2ATools" />
+            </feature>
+        </config-file>
+        <source-file src="src/android/I2ATools.java" target-dir="src/com/i2asolutions/phonegap" />
+    </platform>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="I2ATools">
+                <param name="ios-package" value="I2ATools" />
+            </feature>
+        </config-file>
+        <header-file src="src/ios/I2ATools.h" />
+        <source-file src="src/ios/I2ATools.m" />
+    </platform>
+
+</plugin>
