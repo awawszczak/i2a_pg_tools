@@ -14,8 +14,12 @@
 - (void)closeApp:(CDVInvokedUrlCommand*)command
 {
     UIViewController * vc = self.viewController;
-    NSLog(@"View controller class");
-    NSLog(@"%@", [vc class]);
+    if (vc.presentingViewController != nil)
+    {
+        NSLog(@"Dismiss");
+        [vc.presentingViewController dismissViewControllerAnimated:YES completion:^{
+        }];
+    }
 }
 
 @end
